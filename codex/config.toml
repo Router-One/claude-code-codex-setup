@@ -1,0 +1,16 @@
+# Codex CLI via Router One (https://router.one)
+# Copy this into ~/.codex/config.toml, then export your key in the same
+# shell that runs codex:
+#   export OPENAI_API_KEY=sk-your-router-one-key
+#
+# The wire_api line matters: Codex speaks the Responses wire protocol, so
+# a plain base-URL swap without it fails with 404/400.
+# Details: https://router.one/codex-responses-api
+
+model_provider = "router"
+
+[model_providers.router]
+name = "router"
+base_url = "https://api.router.one/v1"
+requires_openai_auth = true
+wire_api = "responses"
